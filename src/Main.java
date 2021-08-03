@@ -7,46 +7,47 @@ import java.util.List;
 public class Main {
     static String INPUTDATA = "resources/input.csv";
     public static void main(String[] args) throws Exception {
-        List<List<String>> input_csv = new ArrayList<>();
-        List<String> output_csv = new ArrayList<>();
+        List<List<String>> inputcsv = new ArrayList<>();
+        List<String> outputcsv = new ArrayList<>();
 
         try (BufferedReader in = new BufferedReader(new FileReader(INPUTDATA))) {
             String line;
             while ((line = in.readLine()) != null) {
                 String[] values = line.split(",");
-                input_csv.add(Arrays.asList(values));
+                inputcsv.add(Arrays.asList(values));
             }
         }
 
-        for (List employee_data : input_csv) {
-            //System.out.println(employee_data);
-
+        for (List employeeData : inputcsv) {
             // Extract individual data values from the list
             // First and last name
-            String first_name = (String) employee_data.get(0);
-            String last_name = (String) employee_data.get(1);
+            String fName = (String) employeeData.get(0);
+            String lName = (String) employeeData.get(1);
 
             // Annual salary
-            double annual_salary = Double.parseDouble((String) employee_data.get(2));
+            int salary = Integer.parseInt((String) employeeData.get(2));
 
             // Super annuation rate
-            String super_raw = (String) employee_data.get(3);
-            int super_rate = Integer.parseInt(super_raw.substring(0, super_raw.length()-1));
+            String superRaw = (String) employeeData.get(3);
+            int superRate = Integer.parseInt(superRaw.substring(0, superRaw.length()-1));
 
             // Payment period
-            String pay_period = (String) employee_data.get(4);
+            String payPeriod = (String) employeeData.get(4);
 
-            // System.out.println(first_name);
-            // System.out.println(last_name);
-            // System.out.println(annual_salary);
-            // System.out.println(super_rate);
-            // System.out.println(pay_period);
+            // Calculate payroll data
+            // Gross income
+            int gross = Calculations.calcGross(salary);
 
-            String out = String.format("%s %s,%s,%d", first_name, last_name, pay_period, super_rate);
-            output_csv.add(out);
+            // Income tax
+
+            // Net income
+
+            // Save to output list
+            // String out = String.format("%s %s,%s,%d,%d,%d,%d", fName, lName, payPeriod, gross, tax, net, super);
+            // outputcsv.add(out);
         }
         
-        System.out.println(input_csv);
-        System.out.println(output_csv);
+        System.out.println(inputcsv);
+        System.out.println(outputcsv);
     }
 }
