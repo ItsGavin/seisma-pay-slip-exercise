@@ -39,7 +39,7 @@ public class Main {
             int gross = Calculations.calcGross(salary);
 
             // Income tax
-
+            int tax = Calculations.calcTax(salary);
             // Net income
 
             // Save to output list
