@@ -42,5 +42,13 @@ public class Calculations {
 
         //-1 tax indicates a failure in the tax calculation
         else return -1; 
-        }
     }
+
+    public static int calcNet(int gross, int tax) {
+        return gross - tax;
+    }
+
+    public static int calcSuper(int gross, double superRate) {
+        return (int) Math.round(gross * superRate);
+    }
+}
