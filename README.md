@@ -20,7 +20,7 @@ This script compiles the project's class files and creates a 'bin' directory if 
         ~/seisma-pay-slip-exercise/$ java -cp bin Main
 
 ## Data Format
-As detailed in the exercise brief, the input and output csv data are formatted in the following manner.
+As detailed in the exercise brief, the input and output CSV data are formatted in the following manner.
 
 Input Formatted:
 
@@ -41,22 +41,22 @@ Output Raw:
 ``name, pay period, gross income, income tax, net income, super``
 
 ## Editing Variables
-#### Input csv (Employee Information)
+#### Input CSV (Employee Information)
 By default, the program reads a file ``input.csv`` from the ``resources`` folder to obtain employee information data.
 
-To change this, edit the global variable ``INPUTSOURCE`` in ``Main.java`` (line 21) to point to the new input csv.
+To change this, edit the global variable ``INPUTSOURCE`` in ``Main.java`` (line 21) to point to the new input CSV.
 
-#### Output csv (Pay Slip Information)
+#### Output CSV (Pay Slip Information)
 By default, the program writes the processed pay slip information to a file ``output.csv`` in the ``resources`` folder.
 
-To change this, edit the global variable ``OUTPUTSOURCE`` in ``Main.java`` (line 24) to point to the new output csv.
+To change this, edit the global variable ``OUTPUTSOURCE`` in ``Main.java`` (line 24) to point to the new output CSV.
 
 ## Project Structure
         ├── README.md                     - Readme file
         ├── build.sh                      - Build script to compile classes
         ├── .gitignore                    - .gitignore file
         ├── resources
-        |   ├── input.csv                 - Employee information csv file
+        |   ├── input.csv                 - Employee information CSV file
         |   └── Prereq Coding Test.docx   - Exercise brief
         └── src
             ├── Calculations.java         - Class containing pay slip information calculation methods
