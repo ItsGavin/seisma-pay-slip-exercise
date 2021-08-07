@@ -1,5 +1,18 @@
+/** 
+ * Calculations is a class that holds all the payroll calculations used 
+ * by the program.
+ * 
+ * @author Gavin Ng
+ */
 public class Calculations {
 
+    /**
+     * Calculates gross monthly income of an employee
+     * 
+     * @param salary annual salary of the employee
+     * @return  the calculated gross monthly income of the employee rounded to 
+     *          the nearest whole number
+     */
     public static int calcGross(int salary) {
         double gross = salary/12;
         int grossRounded = (int) Math.round(gross);
@@ -7,6 +20,14 @@ public class Calculations {
         return grossRounded;
     }
 
+    /**
+     * Calculates the monthly income tax of an employee
+     * 
+     * @param salary annual salary of the employee
+     * @return  the calculated monthly income tax of the employee based on 
+     *          their tax bracket(@see resources\Prereq Coding Test.docx),
+     *          otherwise -1 if there is a calculation failure
+     */
     public static int calcTax(int salary) {
         // Tax bracket 1
         // No tax
@@ -44,10 +65,25 @@ public class Calculations {
         else return -1; 
     }
 
+    /**
+     * Calculates the net income of an employee
+     * 
+     * @param gross the gross monthly income of the employee
+     * @param tax the monthly income tax of the employee
+     * @return  the calculated net income of the employee
+     */
     public static int calcNet(int gross, int tax) {
         return gross - tax;
     }
 
+    /**
+     * Calculates the amount of monthly superannuation payment
+     * 
+     * @param gross the gross monthly income of the employee
+     * @param superRate the superannuation rate of the employee
+     * @return  the calculated amount of monthly superannuation payment of the 
+     *          employee rounded to the nearest whole number     
+     */
     public static int calcSuper(int gross, double superRate) {
         return (int) Math.round(gross * superRate);
     }

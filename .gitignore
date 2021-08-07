@@ -27,3 +27,6 @@ hs_err_pid*
 
 # Output csv
 output.csv
+
+# VSC files
+**/.vscode
