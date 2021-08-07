@@ -39,6 +39,8 @@ public class Main {
         // List of strings containing the data to be written to the output csv
         List<String> outputcsv = new ArrayList<>();
 
+        System.out.println("Reading input csv from: " + INPUTSOURCE);
+
         // Read data from input csv file
         try (BufferedReader reader = new BufferedReader(
             new FileReader(INPUTSOURCE))) {
@@ -90,6 +92,8 @@ public class Main {
             outputcsv.add(out);
         }
 
+        System.out.println("Writing output csv to: " + OUTPUTSOURCE);
+
         // Write data to output csv file
         try (PrintWriter writer = new PrintWriter(new File(OUTPUTSOURCE))) {
      
@@ -97,7 +101,7 @@ public class Main {
                 writer.write(outputLine);
             }
 
-            System.out.println("output.csv write complete"); 
+            System.out.println("Write complete"); 
         }
     }
 }
