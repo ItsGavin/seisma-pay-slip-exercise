@@ -25,7 +25,7 @@ As detailed in the exercise brief, the input and output csv data are formatted i
 Input Formatted:
 
 | First Name | Last Name | Annual Salary | Superannuation Rate (%) | Payment Start Date |
-| --- | --- |
+| --- | --- | --- | --- | --- |
 
 Input Raw:
 
@@ -34,7 +34,7 @@ Input Raw:
 Output Formatted:
 
 | Name | Pay Period | Gross Income | Income Tax | Net Income | Superannuation Amount |
-| --- | --- |
+| --- | --- | --- | --- | --- | --- |
 
 Output Raw:
 ``name, pay period, gross income, income tax, net income, super``
