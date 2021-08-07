@@ -10,6 +10,10 @@ import java.util.List;
 /** 
  * Main class containing the main method of the pay slip calculation program.
  * 
+ * This program is designed to first read and parse employee information from 
+ * an input csv file. The data is then ran through various calculations to 
+ * obtain pay slip information and written to an output csv.
+ * 
  * @author Gavin Ng
  */
 public class Main {
