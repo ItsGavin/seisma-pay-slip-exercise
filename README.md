@@ -1,44 +1,23 @@
 # seisma-pay-slip-exercise
 Seisma recruitment exercise: Monthly employee pay slip calculation program.
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-# Assumptions
-The input and output CSV files are assumed to have no headings and contain raw data from line 1 onwards
-CSV line delimiter is a comma(,)
-=======
->>>>>>> Stashed changes
 Exercise brief located at ``resources/Prereq Coding Test.docx``
 
 ## Instructions
 1. Clone the project (HTTPS):
 
-<<<<<<< Updated upstream
-  ~$ git clone https://github.com/ItsGavin/seisma-pay-slip-exercise.git
-
-2. Run the build script:
-
-  ~$ cd seisma-pay-slip-exercise
-  ~/seisma-pay-slip-exercise/$ build.sh
-=======
         ~$ git clone https://github.com/ItsGavin/seisma-pay-slip-exercise.git
 
 2. Run the build script:
 
         ~$ cd seisma-pay-slip-exercise
         ~/seisma-pay-slip-exercise/$ build.sh
->>>>>>> Stashed changes
 
 This script compiles the project's class files and creates a 'bin' directory if it does not exist.
 
 3. Run the program:
 
-<<<<<<< Updated upstream
-  ~/seisma-pay-slip-exercise/$ java -cp bin Main
-=======
         ~/seisma-pay-slip-exercise/$ java -cp bin Main
->>>>>>> Stashed changes
 
 ## Data Format
 As detailed in the exercise brief, the input and output csv data are formatted in the following manner.
@@ -46,10 +25,7 @@ As detailed in the exercise brief, the input and output csv data are formatted i
 Input Formatted:
 
 | First Name | Last Name | Annual Salary | Superannuation Rate (%) | Payment Start Date |
-<<<<<<< Updated upstream
-=======
 | --- | --- |
->>>>>>> Stashed changes
 
 Input Raw:
 
@@ -58,10 +34,7 @@ Input Raw:
 Output Formatted:
 
 | Name | Pay Period | Gross Income | Income Tax | Net Income | Superannuation Amount |
-<<<<<<< Updated upstream
-=======
 | --- | --- |
->>>>>>> Stashed changes
 
 Output Raw:
 ``name, pay period, gross income, income tax, net income, super``
@@ -78,17 +51,6 @@ By default, the program writes the processed pay slip information to a file ``ou
 To change this, edit the global variable ``OUTPUTSOURCE`` in ``Main.java`` (line 24) to point to the new output csv.
 
 ## Project Structure
-<<<<<<< Updated upstream
-  ├── README.md                     - Readme file
-  ├── build.sh                      - Build script to compile classes
-  ├── .gitignore                    - .gitignore file
-  ├── resources
-  |   ├── input.csv                 - Employee information csv file
-  |   └── Prereq Coding Test.docx   - Exercise brief
-  └── src
-      ├── Calculations.java         - Class containing pay slip information calculation methods
-      └── Main.java                 - Main method
-=======
         ├── README.md                     - Readme file
         ├── build.sh                      - Build script to compile classes
         ├── .gitignore                    - .gitignore file
@@ -98,14 +60,8 @@ To change this, edit the global variable ``OUTPUTSOURCE`` in ``Main.java`` (line
         └── src
             ├── Calculations.java         - Class containing pay slip information calculation methods
             └── Main.java                 - Main method
->>>>>>> Stashed changes
 
 ## Assumptions
 - The input and output CSV files are assumed to have no headings and contain raw data from line 1 onwards
 
-<<<<<<< Updated upstream
 - CSV line delimiter is a comma(,)
-=======
-- CSV line delimiter is a comma(,)
->>>>>>> Stashed changes
->>>>>>> Stashed changes
