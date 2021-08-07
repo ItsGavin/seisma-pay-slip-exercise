@@ -37,6 +37,7 @@ Output Formatted:
 | --- | --- | --- | --- | --- | --- |
 
 Output Raw:
+
 ``name, pay period, gross income, income tax, net income, super``
 
 ## Editing Variables
@@ -65,3 +66,5 @@ To change this, edit the global variable ``OUTPUTSOURCE`` in ``Main.java`` (line
 - The input and output CSV files are assumed to have no headings and contain raw data from line 1 onwards
 
 - CSV line delimiter is a comma(,)
+
+- Input.csv is cleaned and adheres to the input data format
