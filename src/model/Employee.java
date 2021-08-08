@@ -3,7 +3,11 @@ import static utility.Constants.TAXDATA;
 import static utility.Constants.MONTHS;
 /** 
  * Models an Employee, holding all the necessary employee information and
- * pay slip data used by the program
+ * pay slip data used by the program.
+ * 
+ * Constructor takes first name, last name, annual salary, superannuation rate,
+ * and payment period as input and calculates tax rate, gross income, net 
+ * income, and superannuation amount. 
  * 
  * @author Gavin Ng
  */
@@ -15,10 +19,10 @@ public class Employee {
     private final double superRate;
     private final String payPeriod;
 
-    private int tax = this.calcTax();
-    private int gross = this.calcGross();
-    private int net = this.calcNet();
-    private int superAmount = this.calcSuper();
+    private int tax;
+    private int gross;
+    private int net;
+    private int superAmount;
 
     public Employee(String fName, String lName, int salary, double superRate, 
         String payPeriod) {
@@ -28,36 +32,53 @@ public class Employee {
         this.salary = salary;
         this.superRate = superRate;
         this.payPeriod = payPeriod;
+
+        this.tax = this.calcTax();
+        this.gross = this.calcGross();
+        this.net = this.calcNet();
+        this.superAmount = this.calcSuper();
     }
 
     private int calcGross() {
-        return (int) Math.round(this.salary/MONTHS);
+
+        return (int) Math.round(salary/MONTHS);
     }
 
     private int calcTax() {
 
         int taxBracket;
+        double taxRaw;
 
-        if (this.salary <= TAXDATA[0][0]) { taxBracket = 0; }
-        else if (this.salary <= TAXDATA[1][0]) { taxBracket = 1; }
-        else if (this.salary <= TAXDATA[2][0]) { taxBracket = 2; }
-        else if (this.salary <= TAXDATA[3][0]) { taxBracket = 3; }
-        else if (this.salary > TAXDATA[3][0]) { taxBracket = 4; }
+        if (salary <= TAXDATA[0][0]) { taxBracket = 0; }
+        else if (salary <= TAXDATA[1][0]) { taxBracket = 1; }
+        else if (salary <= TAXDATA[2][0]) { taxBracket = 2; }
+        else if (salary <= TAXDATA[3][0]) { taxBracket = 3; }
+        else if (salary > TAXDATA[3][0]) { taxBracket = 4; }
         else taxBracket = 0;
+
+        if (taxBracket > 0) {
+            taxRaw = (TAXDATA[taxBracket][1] + (salary - 
+            TAXDATA[taxBracket-1][0]) * TAXDATA[taxBracket][2]) / MONTHS;
+        }
+        else {
+            taxRaw = 0.0;
+        }
         
-        return (int) Math.round((TAXDATA[taxBracket][1] + (this.salary - 
-            TAXDATA[taxBracket][0]) * TAXDATA[taxBracket][2]) / MONTHS);
+        return (int) Math.round(taxRaw);
     }
 
     private int calcNet() {
-        return this.gross - this.tax;
+
+        return gross - tax;
     }
 
     private int calcSuper() {
-        return (int) Math.round(this.gross * this.superRate);
+
+        return (int) Math.round(gross * superRate);
     }
 
     public String toStringCSV() {
+
         return String.format("%s %s,%s,%d,%d,%d,%d\n", fName, lName, 
         payPeriod, gross, tax, net, superAmount);
     }

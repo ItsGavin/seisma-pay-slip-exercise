@@ -14,8 +14,8 @@ import model.Employee;
  * Main class containing the main method of the pay slip calculation program.
  * 
  * This program is designed to first read and parse employee information from 
- * an input csv file. The data is then ran through various calculations to 
- * obtain pay slip information and written to an output csv.
+ * an input CSV file. The data is then ran through various calculations to 
+ * obtain pay slip information and written to an output CSV.
  * 
  * @author Gavin Ng
  */
@@ -75,6 +75,7 @@ public class Main {
             Employee employee = new Employee(fName, lName, salary, superRate, 
                 payPeriod);
 
+            System.out.println(employeeData);
             System.out.println(employee.toStringCSV());
 
             // // Calculate payroll data
