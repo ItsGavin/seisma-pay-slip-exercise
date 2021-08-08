@@ -32,9 +32,8 @@ public class Main {
      * @throws Exception if an error occurs
      */
     public static void main(String[] args) throws Exception {
-        // List of list of strings to hold data read from the input csv
+
         List<List<String>> inputcsv = new ArrayList<>();
-        // List of strings containing the data to be written to the output csv
         List<String> outputcsv = new ArrayList<>();
 
         String INPUTSOURCE = args[0];
@@ -42,7 +41,6 @@ public class Main {
 
         System.out.println("Reading input csv from: " + INPUTSOURCE);
 
-        // Read data from input csv file
         try (BufferedReader reader = new BufferedReader(
             new FileReader(INPUTSOURCE))) {
             String line;
@@ -56,7 +54,6 @@ public class Main {
             return;
         }
 
-        // Iterates through each line of the input csv (each employee)
         for (List employeeData : inputcsv) {
 
             String fName = (String) employeeData.get(0);
@@ -79,8 +76,7 @@ public class Main {
         }
 
         System.out.println("Writing output csv to: " + OUTPUTSOURCE);
-
-        // Write data to output csv file
+        
         try (PrintWriter writer = new PrintWriter(new File(OUTPUTSOURCE))) {
      
             for (String outputLine : outputcsv) {
