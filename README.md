@@ -37,7 +37,7 @@ Output Formatted:
 Output Raw:
 ``name, pay period, gross income, income tax, net income, super``
 
-## Editing Variables
+<!-- ## Editing Variables
 #### Input csv (Employee Information)
 By default, the program reads a file ``input.csv`` from the ``resources`` folder to obtain employee information data.
 
@@ -46,9 +46,9 @@ To change this, edit the global variable ``INPUTSOURCE`` in ``Main.java`` (line 
 #### Output csv (Pay Slip Information)
 By default, the program writes the processed pay slip information to a file ``output.csv`` in the ``resources`` folder.
 
-To change this, edit the global variable ``OUTPUTSOURCE`` in ``Main.java`` (line 24) to point to the new output csv.
+To change this, edit the global variable ``OUTPUTSOURCE`` in ``Main.java`` (line 24) to point to the new output csv. -->
 
-## Project Structure
+<!-- ## Project Structure
   ├── README.md                     - Readme file
   ├── build.sh                      - Build script to compile classes
   ├── .gitignore                    - .gitignore file
@@ -57,7 +57,7 @@ To change this, edit the global variable ``OUTPUTSOURCE`` in ``Main.java`` (line
   |   └── Prereq Coding Test.docx   - Exercise brief
   └── src
       ├── Calculations.java         - Class containing pay slip information calculation methods
-      └── Main.java                 - Main method
+      └── Main.java                 - Main method -->
 
 ## Assumptions
 - The input and output CSV files are assumed to have no headings and contain raw data from line 1 onwards

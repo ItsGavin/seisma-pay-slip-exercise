@@ -1,3 +1,4 @@
+package main;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,6 +7,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import model.Employee;
 
 /** 
  * Main class containing the main method of the pay slip calculation program.
@@ -50,58 +53,60 @@ public class Main {
                 inputcsv.add(Arrays.asList(values));
             }
         } catch (FileNotFoundException e) {
+            System.out.println("No input CSV file found at path: " + INPUTSOURCE);
             System.out.println(e.getMessage());
             return;
         }
 
         // Iterates through each line of the input csv (each employee)
         for (List employeeData : inputcsv) {
-            // Extract individual data values from the list
-            // First and last name
+
             String fName = (String) employeeData.get(0);
             String lName = (String) employeeData.get(1);
 
-            // Annual salary
             int salary = Integer.parseInt((String) employeeData.get(2));
 
-            // Superannuation rate
             String superRaw = (String) employeeData.get(3);
             double superRate = Double.parseDouble(superRaw.substring(
                 0, superRaw.length()-1))/100;
 
-            // Payment period
             String payPeriod = (String) employeeData.get(4);
 
-            // Calculate payroll data
-            // Gross income
-            int gross = Calculations.calcGross(salary);
+            Employee employee = new Employee(fName, lName, salary, superRate, 
+                payPeriod);
 
-            // Income tax
-            int tax = Calculations.calcTax(salary);
+            System.out.println(employee.toStringCSV());
 
-            // Net income
-            int net = Calculations.calcNet(gross, tax);
+            // // Calculate payroll data
+            // // Gross income
+            // int gross = Employee.calcGross(salary);
 
-            // Superannuation
-            int superAmount = Calculations.calcSuper(gross, superRate);
+            // // Income tax
+            // int tax = Employee.calcTax(salary);
 
-            // Save to output list
-            String out = String.format("%s %s,%s,%d,%d,%d,%d\n", fName, lName, 
-                payPeriod, gross, tax, net, superAmount);
+            // // Net income
+            // int net = Employee.calcNet(gross, tax);
 
-            outputcsv.add(out);
+            // // Superannuation
+            // int superAmount = Employee.calcSuper(gross, superRate);
+
+            // // Save to output list
+            // String out = String.format("%s %s,%s,%d,%d,%d,%d\n", fName, lName, 
+            //     payPeriod, gross, tax, net, superAmount);
+
+            // outputcsv.add(out);
         }
 
-        System.out.println("Writing output csv to: " + OUTPUTSOURCE);
+        // System.out.println("Writing output csv to: " + OUTPUTSOURCE);
 
-        // Write data to output csv file
-        try (PrintWriter writer = new PrintWriter(new File(OUTPUTSOURCE))) {
+        // // Write data to output csv file
+        // try (PrintWriter writer = new PrintWriter(new File(OUTPUTSOURCE))) {
      
-            for (String outputLine : outputcsv) {
-                writer.write(outputLine);
-            }
+        //     for (String outputLine : outputcsv) {
+        //         writer.write(outputLine);
+        //     }
 
-            System.out.println("Write complete"); 
-        }
+        //     System.out.println("Write complete"); 
+        // }
     }
 }
