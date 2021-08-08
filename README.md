@@ -4,6 +4,7 @@ Seisma recruitment exercise: Monthly employee pay slip calculation program.
 Exercise brief located at ``resources/Prereq Coding Test.docx``
 
 ## Instructions
+The 
 1. Clone the project (HTTPS):
 
   ~$ git clone https://github.com/ItsGavin/seisma-pay-slip-exercise.git
@@ -17,7 +18,12 @@ This script compiles the project's class files and creates a 'bin' directory if 
 
 3. Run the program:
 
-  ~/seisma-pay-slip-exercise/$ java -cp bin Main
+The program requires 2 command line arguements to run, the path to the input 
+CSV file and the path to the output CSV file. The following example command
+defaults the paths of both CSV files to the resource folder, named ``input.csv``
+and ``output.csv`` respectively
+
+  ~/seisma-pay-slip-exercise/$ java -cp bin main/Main resources/input.csv resources/output.csv
 
 ## Data Format
 As detailed in the exercise brief, the input and output csv data are formatted in the following manner.

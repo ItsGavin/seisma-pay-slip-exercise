@@ -73,27 +73,9 @@ public class Main {
             Employee employee = new Employee(fName, lName, salary, superRate, 
                 payPeriod);
 
-            System.out.println(employeeData);
-            System.out.println(employee.toStringCSV());
-
-            // // Calculate payroll data
-            // // Gross income
-            // int gross = Employee.calcGross(salary);
-
-            // // Income tax
-            // int tax = Employee.calcTax(salary);
-
-            // // Net income
-            // int net = Employee.calcNet(gross, tax);
-
-            // // Superannuation
-            // int superAmount = Employee.calcSuper(gross, superRate);
-
-            // // Save to output list
-            // String out = String.format("%s %s,%s,%d,%d,%d,%d\n", fName, lName, 
-            //     payPeriod, gross, tax, net, superAmount);
-
-            // outputcsv.add(out);
+            // System.out.println(employeeData);
+            // System.out.println(employee.toStringCSV());
+            outputcsv.add(employee.toStringCSV());
         }
 
         System.out.println("Writing output csv to: " + OUTPUTSOURCE);
