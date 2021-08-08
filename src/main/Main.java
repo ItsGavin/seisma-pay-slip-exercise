@@ -20,11 +20,6 @@ import model.Employee;
  * @author Gavin Ng
  */
 public class Main {
-    // Global variable defining the relative path for the employee details csv
-    static String INPUTSOURCE = "resources/input.csv";
-    // Global variable defining the relative path for the employee pay slip 
-    // information csv
-    static String OUTPUTSOURCE = "resources/output.csv";
 
     /**
      * Main method of the program
@@ -41,6 +36,9 @@ public class Main {
         List<List<String>> inputcsv = new ArrayList<>();
         // List of strings containing the data to be written to the output csv
         List<String> outputcsv = new ArrayList<>();
+
+        String INPUTSOURCE = args[0];
+        String OUTPUTSOURCE = args[1];
 
         System.out.println("Reading input csv from: " + INPUTSOURCE);
 
@@ -98,16 +96,16 @@ public class Main {
             // outputcsv.add(out);
         }
 
-        // System.out.println("Writing output csv to: " + OUTPUTSOURCE);
+        System.out.println("Writing output csv to: " + OUTPUTSOURCE);
 
-        // // Write data to output csv file
-        // try (PrintWriter writer = new PrintWriter(new File(OUTPUTSOURCE))) {
+        // Write data to output csv file
+        try (PrintWriter writer = new PrintWriter(new File(OUTPUTSOURCE))) {
      
-        //     for (String outputLine : outputcsv) {
-        //         writer.write(outputLine);
-        //     }
+            for (String outputLine : outputcsv) {
+                writer.write(outputLine);
+            }
 
-        //     System.out.println("Write complete"); 
-        // }
+            System.out.println("Write complete"); 
+        }
     }
 }
