@@ -1,4 +1,5 @@
-package main;
+package payslip;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,7 +12,7 @@ import java.util.List;
 import model.Employee;
 
 /** 
- * Main class containing the main method of the pay slip calculation program.
+ * App class containing the main method of the pay slip calculation program.
  * 
  * This program is designed to first read and parse employee information from 
  * an input CSV file. The data is then ran through various calculations to 
@@ -19,8 +20,7 @@ import model.Employee;
  * 
  * @author Gavin Ng
  */
-public class Main {
-
+public final class App {
     /**
      * Main method of the program
      * Order of operation:
@@ -38,11 +38,13 @@ public class Main {
 
         String INPUTSOURCE = args[0];
         String OUTPUTSOURCE = args[1];
-
-        System.out.println("Reading input csv from: " + INPUTSOURCE);
-
+   
+        // Read from input CSV
         try (BufferedReader reader = new BufferedReader(
             new FileReader(INPUTSOURCE))) {
+
+            System.out.println("Reading input csv from: " + INPUTSOURCE);
+
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] values = line.split(",");
@@ -75,9 +77,10 @@ public class Main {
             outputcsv.add(employee.toStringCSV());
         }
 
-        System.out.println("Writing output csv to: " + OUTPUTSOURCE);
-        
+        // Write to output CSV
         try (PrintWriter writer = new PrintWriter(new File(OUTPUTSOURCE))) {
+
+            System.out.println("Writing output csv to: " + OUTPUTSOURCE);
      
             for (String outputLine : outputcsv) {
                 writer.write(outputLine);
