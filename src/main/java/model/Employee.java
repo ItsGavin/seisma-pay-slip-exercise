@@ -13,19 +13,25 @@ import static utility.Constants.MONTHS;
  */
 public class Employee {
 
-    private final String fName;
-    private final String lName;
-    private final int salary;
-    private final double superRate;
-    private final String payPeriod;
+    public final String fName;
+    public final String lName;
+    public final int salary;
+    public final double superRate;
+    public final String payPeriod;
 
-    private int tax;
-    private int gross;
-    private int net;
-    private int superAmount;
+    public int tax;
+    public int gross;
+    public int net;
+    public int superAmount;
 
     public Employee(String fName, String lName, int salary, double superRate, 
         String payPeriod) {
+
+        try {
+            
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
 
         this.fName = fName;
         this.lName = lName;

@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import payslip.InputParser;
 
 import model.Employee;
 
@@ -56,21 +57,17 @@ public final class App {
             return;
         }
 
-        for (List employeeData : inputcsv) {
+        for (List<String> employeeData : inputcsv) {
 
-            String fName = (String) employeeData.get(0);
-            String lName = (String) employeeData.get(1);
+            List<Object> parsedEmployeeData = InputParser.ParseInput(employeeData);
 
-            int salary = Integer.parseInt((String) employeeData.get(2));
-
-            String superRaw = (String) employeeData.get(3);
-            double superRate = Double.parseDouble(superRaw.substring(
-                0, superRaw.length()-1))/100;
-
-            String payPeriod = (String) employeeData.get(4);
-
-            Employee employee = new Employee(fName, lName, salary, superRate, 
-                payPeriod);
+            Employee employee = new Employee(
+                (String) parsedEmployeeData.get(0),
+                (String) parsedEmployeeData.get(1),
+                (int) parsedEmployeeData.get(2),
+                (Double) parsedEmployeeData.get(3),
+                (String) parsedEmployeeData.get(4)
+                );
 
             // System.out.println(employeeData);
             // System.out.println(employee.toStringCSV());
