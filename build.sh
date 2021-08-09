@@ -1,8 +1,13 @@
 echo Compiling class files
-mkdir "bin"
-javac -classpath "bin" -d "bin" src/utility/Constants.java
+mkdir "target/classes"
+javac -classpath "target/classes" -d "target/classes" src/main/java/utility/Constants.java
 wait $!
-javac -classpath "bin" -d "bin" src/model/Employee.java
+javac -classpath "target/classes" -d "target/classes" src/main/java/utility/InputOutOfRangeException.java
 wait $!
-javac -classpath "bin" -d "bin" src/main/Main.java
+javac -classpath "target/classes" -d "target/classes" src/main/java/model/Employee.java
+wait $!
+javac -classpath "target/classes" -d "target/classes" src/main/java/payslip/InputParser.java
+wait $!
+javac -classpath "target/classes" -d "target/classes" src/main/java/payslip/App.java
+wait $!
 echo Build successful

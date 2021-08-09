@@ -1,6 +1,10 @@
 package model;
+
 import static utility.Constants.TAXDATA;
 import static utility.Constants.MONTHS;
+
+import utility.InputOutOfRangeException;
+
 /** 
  * Models an Employee, holding all the necessary employee information and
  * pay slip data used by the program.
@@ -11,32 +15,53 @@ import static utility.Constants.MONTHS;
  * 
  * @author Gavin Ng
  */
-public class Employee {
+public class Employee{
 
-    private final String fName;
-    private final String lName;
-    private final int salary;
-    private final double superRate;
-    private final String payPeriod;
+    public final String fName;
+    public final String lName;
+    public final int salary;
+    public final double superRate;
+    public final String payPeriod;
 
-    private int tax;
-    private int gross;
-    private int net;
-    private int superAmount;
+    public int tax;
+    public int gross;
+    public int net;
+    public int superAmount;
 
     public Employee(String fName, String lName, int salary, double superRate, 
-        String payPeriod) {
+        String payPeriod) throws Exception{
 
-        this.fName = fName;
-        this.lName = lName;
-        this.salary = salary;
-        this.superRate = superRate;
-        this.payPeriod = payPeriod;
-
-        this.tax = this.calcTax();
-        this.gross = this.calcGross();
-        this.net = this.calcNet();
-        this.superAmount = this.calcSuper();
+        try {
+            if (salary < 0) {
+                System.out.println("ERROR");
+                String message = String.format(
+                    "Salary must be a positive integer: %s %s", fName, lName);
+                InputOutOfRangeException ex = 
+                    new InputOutOfRangeException(message);
+                throw ex;
+            }
+            if (superRate < 0.0 || superRate > 0.50) {
+                String message = String.format(
+                    "Super rate must be between 0 - 0.5: %s %s", fName, lName);
+                InputOutOfRangeException ex = 
+                    new InputOutOfRangeException(message);
+                throw ex;
+            }
+        } finally {
+            this.fName = fName;
+            this.lName = lName;
+            this.salary = salary;
+            this.superRate = superRate;
+            this.payPeriod = payPeriod;
+    
+            this.tax = this.calcTax();
+            this.gross = this.calcGross();
+            this.net = this.calcNet();
+            this.superAmount = this.calcSuper();
+        }
+        // catch (Exception e) {
+        //     System.out.println(e.getMessage());
+        // }
     }
 
     private int calcGross() {
