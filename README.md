@@ -1,36 +1,43 @@
 # seisma-pay-slip-exercise
-Seisma recruitment exercise: Monthly employee pay slip calculation program.
 
+Seisma recruitment exercise: Monthly employee pay slip calculation program.
 Exercise brief located at ``resources/Prereq Coding Test.docx``
 
+Author: Gavin Ng
+
+Email: gavin_ng96@hotmail.com
+
 ## Instructions
-The 
+
 1. Clone the project (HTTPS):
 
-  ~$ git clone https://github.com/ItsGavin/seisma-pay-slip-exercise.git
+        ~$ git clone https://github.com/ItsGavin/seisma-pay-slip-exercise.git
 
 2. Run the build script:
 
-  ~$ cd seisma-pay-slip-exercise
-  ~/seisma-pay-slip-exercise/$ build.sh
+        ~$ cd seisma-pay-slip-exercise
+        ~/seisma-pay-slip-exercise/$ build.sh
 
 This script compiles the project's class files and creates a 'bin' directory if it does not exist.
 
 3. Run the program:
 
-The program requires 2 command line arguements to run, the path to the input 
+The program requires 2 command line arguements to run, the path to the input
 CSV file and the path to the output CSV file. The following example command
 defaults the paths of both CSV files to the resource folder, named ``input.csv``
 and ``output.csv`` respectively
 
-  ~/seisma-pay-slip-exercise/$ java -cp bin main/Main resources/input.csv resources/output.csv
+        ~/seisma-pay-slip-exercise/$ java -cp target/classes payslip/App resources/input.csv resources/output.csv
 
 ## Data Format
+
 As detailed in the exercise brief, the input and output csv data are formatted in the following manner.
+Note that ``annual salary`` should be a positive integer and ``super rate (%)`` should be within the range of 0% and 50%.
 
 Input Formatted:
 
 | First Name | Last Name | Annual Salary | Superannuation Rate (%) | Payment Start Date |
+| --- | --- | --- | --- | --- |
 
 Input Raw:
 
@@ -39,33 +46,41 @@ Input Raw:
 Output Formatted:
 
 | Name | Pay Period | Gross Income | Income Tax | Net Income | Superannuation Amount |
+ --- | --- | --- | --- | --- | --- |
 
 Output Raw:
+
 ``name, pay period, gross income, income tax, net income, super``
 
-<!-- ## Editing Variables
-#### Input csv (Employee Information)
-By default, the program reads a file ``input.csv`` from the ``resources`` folder to obtain employee information data.
+## Project Structure
 
-To change this, edit the global variable ``INPUTSOURCE`` in ``Main.java`` (line 21) to point to the new input csv.
-
-#### Output csv (Pay Slip Information)
-By default, the program writes the processed pay slip information to a file ``output.csv`` in the ``resources`` folder.
-
-To change this, edit the global variable ``OUTPUTSOURCE`` in ``Main.java`` (line 24) to point to the new output csv. -->
-
-<!-- ## Project Structure
-  ├── README.md                     - Readme file
-  ├── build.sh                      - Build script to compile classes
-  ├── .gitignore                    - .gitignore file
-  ├── resources
-  |   ├── input.csv                 - Employee information csv file
-  |   └── Prereq Coding Test.docx   - Exercise brief
-  └── src
-      ├── Calculations.java         - Class containing pay slip information calculation methods
-      └── Main.java                 - Main method -->
+        ├── .gitiattributes                 - .gitiattribute file
+        ├── .gitignore                      - .gitignore file
+        ├── .travis.yml                     - .gitignore file
+        ├── build.sh                        - Build script to compile classes
+        ├── pom.xml                         - Maven pom file
+        ├── README.md                       - Readme file
+        ├── resources
+        |   ├── input.csv                   - Employee information csv file
+        |   └── Prereq Coding Test.docx     - Exercise brief
+        └── src
+            ├── main/java
+            |   ├── model
+            |   |   └── Employee.java       - Employee object model class
+            |   ├── payslip
+            |   |   └── App.java            - Main method
+            |   |   └── InputParser.java    - Parser to convert CSV input
+            |   └── utility
+            |       └── Constants.java              - Constant variables
+            |       └── InputOutOfRangeException    - Custom exception
+            └── test/java                           - JUnit test cases
+                ├── model
+                |   └── EmployeeTest.java 
+                └── payslip
+                    └── InputParserTest.java
 
 ## Assumptions
+
 - The input and output CSV files are assumed to have no headings and contain raw data from line 1 onwards
 
 - CSV line delimiter is a comma(,)

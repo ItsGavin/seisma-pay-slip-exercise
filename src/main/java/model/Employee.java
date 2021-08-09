@@ -32,8 +32,6 @@ public class Employee{
         String payPeriod) throws Exception{
 
         try {
-            System.out.println("SALARY:");
-            System.out.println(salary);
             if (salary < 0) {
                 System.out.println("ERROR");
                 String message = String.format(

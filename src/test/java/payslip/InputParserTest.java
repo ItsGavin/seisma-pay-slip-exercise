@@ -9,6 +9,8 @@ import java.util.List;
 
 /**
  * Unit test for InputParser class.
+ * 
+ * @author Gavin Ng
  */
 class InputParserTest {
 

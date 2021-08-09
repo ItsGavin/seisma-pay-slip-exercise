@@ -26,6 +26,10 @@ buildNumber.properties
 .factorypath
 .project
 .vscode/
+.editorconfig
 
 # Output csv
 output.csv
+
+# Bin folder
+bin/
