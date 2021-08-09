@@ -8,7 +8,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import payslip.InputParser;
 
 import model.Employee;
 
@@ -61,17 +60,21 @@ public final class App {
 
             List<Object> parsedEmployeeData = InputParser.ParseInput(employeeData);
 
-            Employee employee = new Employee(
-                (String) parsedEmployeeData.get(0),
-                (String) parsedEmployeeData.get(1),
-                (int) parsedEmployeeData.get(2),
-                (Double) parsedEmployeeData.get(3),
-                (String) parsedEmployeeData.get(4)
-                );
+            try {
+                Employee employee = new Employee(
+                    (String) parsedEmployeeData.get(0),
+                    (String) parsedEmployeeData.get(1),
+                    (int) parsedEmployeeData.get(2),
+                    (Double) parsedEmployeeData.get(3),
+                    (String) parsedEmployeeData.get(4)
+                    );
 
-            // System.out.println(employeeData);
-            // System.out.println(employee.toStringCSV());
-            outputcsv.add(employee.toStringCSV());
+                // System.out.println(employeeData);
+                // System.out.println(employee.toStringCSV());
+                outputcsv.add(employee.toStringCSV());
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
 
         // Write to output CSV

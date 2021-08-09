@@ -1,5 +1,8 @@
 package utility;
 
+/**
+ * File containing constant variables used throughout the program.
+ */
 public final class Constants {
 
     private Constants() {
