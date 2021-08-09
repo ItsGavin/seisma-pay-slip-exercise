@@ -11,6 +11,8 @@ import org.junit.jupiter.api.DisplayName;
 
 /**
  * Unit test for Employee class.
+ * 
+ * @author Gavin Ng
  */
 public class EmployeeTest{
 

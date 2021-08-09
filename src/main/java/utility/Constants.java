@@ -2,6 +2,8 @@ package utility;
 
 /**
  * File containing constant variables used throughout the program.
+ * 
+ * @author Gavin Ng
  */
 public final class Constants {
 

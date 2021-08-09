@@ -1,7 +1,12 @@
 package payslip;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Singleton method to parse CSV input data into a format usable by the
+ * Employee constructor.
+ * 
+ * @author Gavin Ng
+ */
 public class InputParser {
     
     public static List<Object> ParseInput(List<String> employeeData) {
